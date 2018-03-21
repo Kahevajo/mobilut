@@ -1,0 +1,14 @@
+{
+    "name": "Simple map woo!",
+    "icons": [
+        {
+            "src": "map.png",
+            "sizes": "64x64",
+            "type": "image/png",
+            "density": 1.5
+        }
+    ],
+    "start_url": "index.html",
+    "display": "standalone",
+    "orientation": "landscape"
+}
