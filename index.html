@@ -77,6 +77,64 @@
 
             marker.setAnimation(google.maps.Animation.DROP);
 
+            hereMarker = new google.maps.Marker({
+                position: { lat: 59.3499, lng: 18.07 },
+                map: map,
+                draggable: false
+            });
+
+            henrikMarker = new google.maps.Marker({
+                position: { lat: 59.334466, lng: 18.0266557 },
+                map: map,
+                draggable: false
+            });
+
+            var henrikString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                '<div id="bodyContent">' +
+                '<p>This is where I live, this is an old building</p>' +
+                '</div>' +
+                '</div>';
+            
+            var henrikWindow = new google.maps.InfoWindow({
+                content: henrikString
+            });
+
+
+            matildaMarker = new google.maps.Marker({
+                position: { lat: 59.3499, lng: 18.07 },
+                map: map,
+                draggable: false
+            });
+
+            // Here
+            //var zoomOut = document.createElement("div");
+            //zoomOut.className = "button";
+            //zoomOut.innerHTML = "Zoom out";
+            //map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomOut);
+            //zoomOut.addEventListener('click', function () {
+            //    map.setZoom(map.getZoom() - 1);
+            //});
+
+            // Henrik
+            var henrik = document.createElement("div");
+            henrik.className = "button";
+            henrik.innerHTML = "Henrik";
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(henrik);
+            henrik.addEventListener('click', function () {
+                henrikWindow.open(map, henrikMarker);
+            });
+
+            // Matilda
+            var zoomOut = document.createElement("div");
+            zoomOut.className = "button";
+            zoomOut.innerHTML = "Zoom out";
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomOut);
+            zoomOut.addEventListener('click', function () {
+                map.setZoom(map.getZoom() - 1);
+            });
 
             //Zoom out button
             var zoomOut = document.createElement("div");
