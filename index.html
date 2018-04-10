@@ -92,7 +92,7 @@
             var henrikString = '<div id="content">' +
                 '<div id="siteNotice">' +
                 '</div>' +
-                '<h1 id="firstHeading" class="firstHeading">Uluru</h1>' +
+                '<h1 id="firstHeading" class="firstHeading">Henrik</h1>' +
                 '<div id="bodyContent">' +
                 '<p>This is where I live, this is an old building</p>' +
                 '</div>' +
@@ -104,10 +104,24 @@
 
 
             matildaMarker = new google.maps.Marker({
-                position: { lat: 59.3499, lng: 18.07 },
+                position: { lat: 59.3456545, lng: 18.1094723 },
                 map: map,
                 draggable: false
             });
+
+            var matildaString = '<div id="content">' +
+                '<div id="siteNotice">' +
+                '</div>' +
+                '<h1 id="firstHeading" class="firstHeading">Matilda</h1>' +
+                '<div id="bodyContent">' +
+                '<p>This is where I live</p>' +
+                '</div>' +
+                '</div>';
+
+            var matildaindow = new google.maps.InfoWindow({
+                content: matildaString
+            });
+
 
             // Here
             //var zoomOut = document.createElement("div");
@@ -128,12 +142,12 @@
             });
 
             // Matilda
-            var zoomOut = document.createElement("div");
-            zoomOut.className = "button";
-            zoomOut.innerHTML = "Zoom out";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomOut);
-            zoomOut.addEventListener('click', function () {
-                map.setZoom(map.getZoom() - 1);
+            var matilda = document.createElement("div");
+            matilda.className = "button";
+            matilda.innerHTML = "Zoom out";
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(matilda);
+            matilda.addEventListener('click', function () {
+                matildaWindow.open(map, matildaMarker);
             });
 
             //Zoom out button
