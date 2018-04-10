@@ -30,7 +30,7 @@
         .button {
             background-color: white;
             text-decoration-color: black;
-            padding: 5px 5px;
+            padding: 15px 15px;
             margin: 5px 5px;
 
         }
@@ -86,7 +86,8 @@
             henrikMarker = new google.maps.Marker({
                 position: { lat: 59.334466, lng: 18.0266557 },
                 map: map,
-                draggable: false
+                draggable: false,
+                label: "HJ"
             });
 
             var henrikString = '<div id="content">' +
@@ -102,11 +103,11 @@
                 content: henrikString
             });
 
-
             matildaMarker = new google.maps.Marker({
                 position: { lat: 59.3456545, lng: 18.1094723 },
                 map: map,
-                draggable: false
+                draggable: false,
+                label: "M"
             });
 
             var matildaString = '<div id="content">' +
@@ -142,14 +143,31 @@
                 });
             });
 
+            var KTHMarker = new google.maps.Marker({
+                position: { lat: 59.3470166, lng: 18.0737499 },
+                map: map,
+                icon: "https://www.kth.se/polopoly_fs/1.77257!/KTH_Logotyp_RGB_2013-2.svg",
+                draggable: true
+            })
+
+            function toggleBounce() {
+                if (KTHMarker.getAnimation() !== null) {
+                    KTHMarker.setAnimation(null);
+                } else {
+                    KTHMarker.setAnimation(google.maps.Animation.BOUNCE);
+                }
+            }
+
+            KTHMarker.addListener('click', toggleBounce);
+
             // Henrik
             var henrik = document.createElement("div");
             henrik.className = "button";
             henrik.innerHTML = "Henrik";
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(henrik);
             henrik.addEventListener('click', function () {
-                henrikWindow.open(map, henrikMarker);
                 map.panTo(henrikMarker.getPosition());
+                henrikWindow.open(map, henrikMarker);
             });
 
             // Matilda
@@ -158,8 +176,8 @@
             matilda.innerHTML = "Matilda";
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(matilda);
             matilda.addEventListener('click', function () {
-                matildaWindow.open(map, matildaMarker);
                 map.panTo(matildaMarker.getPosition());
+                matildaWindow.open(map, matildaMarker);
             });
 
             //Zoom out button
@@ -184,7 +202,7 @@
             var panWest = document.createElement("div");
             panWest.className = "button";
             panWest.innerHTML = "West";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(panWest);
+            map.controls[google.maps.ControlPosition.LEFT_CENTER].push(panWest);
             panWest.addEventListener('click', function () {
                 map.panBy(-150, 0);
             });
@@ -193,7 +211,7 @@
             var panEast = document.createElement("div");
             panEast.className = "button";
             panEast.innerHTML = "East";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(panEast);
+            map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(panEast);
             panEast.addEventListener('click', function () {
                 map.panBy(150, 0);
             });
@@ -202,7 +220,7 @@
             var panNorth = document.createElement("div");
             panNorth.className = "button";
             panNorth.innerHTML = "North";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(panNorth);
+            map.controls[google.maps.ControlPosition.TOP_CENTER].push(panNorth);
             panNorth.addEventListener('click', function () {
                 map.panBy(0, -150);
             });
@@ -211,7 +229,7 @@
             var panSouth = document.createElement("div");
             panSouth.className = "button";
             panSouth.innerHTML = "South";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(panSouth);
+            map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(panSouth);
             panSouth.addEventListener('click', function () {
                 map.panBy(0, 150);
             });
