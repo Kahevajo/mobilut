@@ -122,7 +122,6 @@
                 content: matildaString
             });
 
-
             // Here
             var here = document.createElement("div");
             here.className = "button";
@@ -135,6 +134,11 @@
                         lng: position.coords.longitude
                     };
                     map.panTo(pos);
+                    hereMarker = new google.maps.Marker({
+                        position: pos,
+                        map: map,
+                        draggable: false
+                    });
                 });
             });
 
