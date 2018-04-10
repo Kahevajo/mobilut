@@ -164,7 +164,7 @@
             var henrik = document.createElement("div");
             henrik.className = "button";
             henrik.innerHTML = "Henrik";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(henrik);
+            map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(henrik);
             henrik.addEventListener('click', function () {
                 map.panTo(henrikMarker.getPosition());
                 henrikWindow.open(map, henrikMarker);
@@ -174,7 +174,7 @@
             var matilda = document.createElement("div");
             matilda.className = "button";
             matilda.innerHTML = "Matilda";
-            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(matilda);
+            map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(matilda);
             matilda.addEventListener('click', function () {
                 map.panTo(matildaMarker.getPosition());
                 matildaWindow.open(map, matildaMarker);
