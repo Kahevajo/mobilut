@@ -139,6 +139,7 @@
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(henrik);
             henrik.addEventListener('click', function () {
                 henrikWindow.open(map, henrikMarker);
+                map.panTo(henrikMarker.getPosition());
             });
 
             // Matilda
@@ -148,6 +149,7 @@
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(matilda);
             matilda.addEventListener('click', function () {
                 matildaWindow.open(map, matildaMarker);
+                map.panTo(matildaMarker.getPosition());
             });
 
             //Zoom out button
