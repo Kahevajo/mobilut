@@ -126,12 +126,15 @@
             // Here
             var here = document.createElement("div");
             here.className = "button";
-            here.innerHTML = "You are here!";
+            here.innerHTML = "Here";
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(here);
             here.addEventListener('click', function () {
                 navigator.geolocation.getCurrentPosition(function (position) {
-                    console.log(position.coords);
-                    map.panTo(position.coords);
+                    var pos = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    map.panTo(pos);
                 });
             });
 
