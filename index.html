@@ -124,13 +124,15 @@
 
 
             // Here
-            //var zoomOut = document.createElement("div");
-            //zoomOut.className = "button";
-            //zoomOut.innerHTML = "Zoom out";
-            //map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(zoomOut);
-            //zoomOut.addEventListener('click', function () {
-            //    map.setZoom(map.getZoom() - 1);
-            //});
+            var here = document.createElement("div");
+            here.className = "button";
+            here.innerHTML = "You are here!";
+            map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(here);
+            here.addEventListener('click', function () {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    map.panTo(position.coords.latitude, position.coords.longitude);
+                });
+            });
 
             // Henrik
             var henrik = document.createElement("div");
