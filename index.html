@@ -130,6 +130,7 @@
             map.controls[google.maps.ControlPosition.RIGHT_BOTTOM].push(here);
             here.addEventListener('click', function () {
                 navigator.geolocation.getCurrentPosition(function (position) {
+                    console.log(position.coords.latitude);
                     map.panTo(position.coords.latitude, position.coords.longitude);
                 });
             });
